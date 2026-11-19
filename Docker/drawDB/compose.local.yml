@@ -1,0 +1,10 @@
+services:
+  drawdb:
+    container_name: profile-test-drawdb-lab-web
+    ports: !override
+      - "127.0.0.1:5173:5173"
+    volumes:
+      - node_modules:/var/www/html/node_modules
+
+volumes:
+  node_modules:

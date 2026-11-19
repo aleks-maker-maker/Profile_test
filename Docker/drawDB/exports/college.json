@@ -1,0 +1,389 @@
+{
+  "tables": [
+    {
+      "name": "teachers",
+      "comment": "",
+      "color": "#175e7a",
+      "fields": [
+        {
+          "id": "w6zWKUL6MJJ6rSlPko-bg",
+          "name": "id",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": false,
+          "primary": true,
+          "default": "",
+          "check": ""
+        },
+        {
+          "id": "ef3I0rB7B6S0GLkVx2w0n",
+          "name": "full_name",
+          "type": "VARCHAR",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": false,
+          "primary": false,
+          "default": "",
+          "size": 100,
+          "check": ""
+        },
+        {
+          "id": "c_06lsk5DlJze6NiCIxlx",
+          "name": "department",
+          "type": "VARCHAR",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": false,
+          "primary": false,
+          "default": "",
+          "size": 100,
+          "check": ""
+        }
+      ],
+      "indices": [],
+      "uniqueConstraints": [],
+      "id": "6xf8OVB2QZ_eQbtibsyJv",
+      "x": 1008,
+      "y": 197,
+      "width": 283
+    },
+    {
+      "name": "groups",
+      "comment": "",
+      "color": "#175e7a",
+      "fields": [
+        {
+          "id": "u5F2WC9I91KgNBDdLPMvx",
+          "name": "id",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": false,
+          "primary": true,
+          "default": "",
+          "check": ""
+        },
+        {
+          "id": "LywP8AUfKLHJ1JtzdXZRL",
+          "name": "group_name",
+          "type": "VARCHAR",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": false,
+          "primary": false,
+          "default": "",
+          "size": 30,
+          "check": ""
+        },
+        {
+          "id": "XVzfEfFW7mJDSPil8Ywx4",
+          "name": "curator_id",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": false,
+          "primary": false,
+          "default": "",
+          "check": ""
+        }
+      ],
+      "indices": [],
+      "uniqueConstraints": [],
+      "id": "VaslhXfoVWy8cjg0OCBzi",
+      "x": 676,
+      "y": 123,
+      "width": 283
+    },
+    {
+      "name": "students",
+      "comment": "",
+      "color": "#175e7a",
+      "fields": [
+        {
+          "id": "sZmvri71HvAJCux404k2i",
+          "name": "id",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": false,
+          "primary": true,
+          "default": "",
+          "check": ""
+        },
+        {
+          "id": "E6SpcjYqxbWrQu-R-TmT-",
+          "name": "full_name",
+          "type": "VARCHAR",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": false,
+          "primary": false,
+          "default": "",
+          "size": 100,
+          "check": ""
+        },
+        {
+          "id": "XyN8iuIsKNNTQ9TYFhFOP",
+          "name": "group_id",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": false,
+          "primary": false,
+          "default": "",
+          "check": ""
+        },
+        {
+          "id": "Bk_ODwPGE0hM1TSTOQhiS",
+          "name": "enrollment_date",
+          "type": "DATE",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": false,
+          "primary": false,
+          "default": "",
+          "check": ""
+        }
+      ],
+      "indices": [],
+      "uniqueConstraints": [],
+      "id": "u57CCxR1_8sh2g4PbIc3o",
+      "x": 344,
+      "y": 49,
+      "width": 283
+    },
+    {
+      "name": "courses",
+      "comment": "",
+      "color": "#175e7a",
+      "fields": [
+        {
+          "id": "2_qKDhEOxePdKv1PdAYm8",
+          "name": "id",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": false,
+          "primary": true,
+          "default": "",
+          "check": ""
+        },
+        {
+          "id": "JJj4X0D_hEGD9zUjLrXVy",
+          "name": "course_name",
+          "type": "VARCHAR",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": false,
+          "primary": false,
+          "default": "",
+          "size": 100,
+          "check": ""
+        },
+        {
+          "id": "_DUI6p-kddoF5IAP4xqVW",
+          "name": "teacher_id",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": false,
+          "primary": false,
+          "default": "",
+          "check": ""
+        }
+      ],
+      "indices": [],
+      "uniqueConstraints": [],
+      "id": "GObglk6dSI65O29UGyLjQ",
+      "x": 676,
+      "y": 351,
+      "width": 283
+    },
+    {
+      "name": "grades",
+      "comment": "",
+      "color": "#175e7a",
+      "fields": [
+        {
+          "id": "ZTtlbQ4h0VzdKZvUPskR0",
+          "name": "id",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": false,
+          "primary": true,
+          "default": "",
+          "check": ""
+        },
+        {
+          "id": "EIZlpi5_C-fHuQU1LP1y0",
+          "name": "student_id",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": false,
+          "primary": false,
+          "default": "",
+          "check": ""
+        },
+        {
+          "id": "2J9QDyDgRhHvlRQs6NpsY",
+          "name": "course_id",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": false,
+          "primary": false,
+          "default": "",
+          "check": ""
+        },
+        {
+          "id": "htmULkETyrk0BLH7mT-DO",
+          "name": "grade",
+          "type": "INTEGER",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": false,
+          "primary": false,
+          "default": "",
+          "check": ""
+        },
+        {
+          "id": "VKrla0lh0qKqp0T0tWR2a",
+          "name": "grade_date",
+          "type": "DATE",
+          "comment": "",
+          "unique": false,
+          "increment": false,
+          "notNull": false,
+          "primary": false,
+          "default": "",
+          "size": "",
+          "check": "",
+          "values": []
+        }
+      ],
+      "indices": [],
+      "uniqueConstraints": [],
+      "id": "aHuqXN6-to3omt5B6CdXO",
+      "x": 12,
+      "y": 190.49205864800348,
+      "width": 283
+    }
+  ],
+  "relationships": [
+    {
+      "startTableId": "u57CCxR1_8sh2g4PbIc3o",
+      "startFieldId": "XyN8iuIsKNNTQ9TYFhFOP",
+      "endTableId": "VaslhXfoVWy8cjg0OCBzi",
+      "endFieldId": "u5F2WC9I91KgNBDdLPMvx",
+      "cardinality": "many_to_one",
+      "fields": [
+        {
+          "startFieldId": "XyN8iuIsKNNTQ9TYFhFOP",
+          "endFieldId": "u5F2WC9I91KgNBDdLPMvx"
+        }
+      ],
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_students_group_id_groups",
+      "color": "#808080",
+      "id": "42RjT1awaHVjTxf5PY2ga"
+    },
+    {
+      "startTableId": "VaslhXfoVWy8cjg0OCBzi",
+      "startFieldId": "XVzfEfFW7mJDSPil8Ywx4",
+      "endTableId": "6xf8OVB2QZ_eQbtibsyJv",
+      "endFieldId": "w6zWKUL6MJJ6rSlPko-bg",
+      "cardinality": "many_to_one",
+      "fields": [
+        {
+          "startFieldId": "XVzfEfFW7mJDSPil8Ywx4",
+          "endFieldId": "w6zWKUL6MJJ6rSlPko-bg"
+        }
+      ],
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_groups_curator_id_teachers",
+      "color": "#808080",
+      "id": "8Ta2MlLCG78R0kwfDhoPf"
+    },
+    {
+      "startTableId": "GObglk6dSI65O29UGyLjQ",
+      "startFieldId": "_DUI6p-kddoF5IAP4xqVW",
+      "endTableId": "6xf8OVB2QZ_eQbtibsyJv",
+      "endFieldId": "w6zWKUL6MJJ6rSlPko-bg",
+      "cardinality": "many_to_one",
+      "fields": [
+        {
+          "startFieldId": "_DUI6p-kddoF5IAP4xqVW",
+          "endFieldId": "w6zWKUL6MJJ6rSlPko-bg"
+        }
+      ],
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_courses_teacher_id_teachers",
+      "color": "#808080",
+      "id": "yx2HbEZjtYTJHuFxMKgEq"
+    },
+    {
+      "startTableId": "aHuqXN6-to3omt5B6CdXO",
+      "startFieldId": "EIZlpi5_C-fHuQU1LP1y0",
+      "endTableId": "u57CCxR1_8sh2g4PbIc3o",
+      "endFieldId": "sZmvri71HvAJCux404k2i",
+      "cardinality": "many_to_one",
+      "fields": [
+        {
+          "startFieldId": "EIZlpi5_C-fHuQU1LP1y0",
+          "endFieldId": "sZmvri71HvAJCux404k2i"
+        }
+      ],
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_grades_student_id_students",
+      "color": "#808080",
+      "id": "RHjYKhwYzBqB9ASjCvzRJ"
+    },
+    {
+      "startTableId": "aHuqXN6-to3omt5B6CdXO",
+      "startFieldId": "2J9QDyDgRhHvlRQs6NpsY",
+      "endTableId": "GObglk6dSI65O29UGyLjQ",
+      "endFieldId": "2_qKDhEOxePdKv1PdAYm8",
+      "cardinality": "many_to_one",
+      "fields": [
+        {
+          "startFieldId": "2J9QDyDgRhHvlRQs6NpsY",
+          "endFieldId": "2_qKDhEOxePdKv1PdAYm8"
+        }
+      ],
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_grades_course_id_courses",
+      "color": "#808080",
+      "id": "2QcJlQfRS0suPmMsOwrbJ"
+    }
+  ],
+  "notes": [],
+  "subjectAreas": [],
+  "views": [],
+  "database": "mysql",
+  "title": "Колледж"
+}
