@@ -1,0 +1,46 @@
+name: profile-test-joomla-lab
+
+services:
+  db:
+    image: mariadb:11.4.13
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD:?Set MARIADB_ROOT_PASSWORD in .env}
+      MARIADB_DATABASE: joomla_db
+      MARIADB_USER: joomla_user
+      MARIADB_PASSWORD: ${JOOMLA_DB_PASSWORD:?Set JOOMLA_DB_PASSWORD in .env}
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 20s
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - joomla-network
+
+  joomla:
+    image: joomla:6.2.0-php8.4-apache
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:${JOOMLA_PORT:-8083}:80"
+    environment:
+      JOOMLA_DB_HOST: db:3306
+      JOOMLA_DB_NAME: joomla_db
+      JOOMLA_DB_USER: joomla_user
+      JOOMLA_DB_PASSWORD: ${JOOMLA_DB_PASSWORD:?Set JOOMLA_DB_PASSWORD in .env}
+    volumes:
+      - joomla_data:/var/www/html
+    networks:
+      - joomla-network
+
+networks:
+  joomla-network:
+
+volumes:
+  db_data:
+  joomla_data:
