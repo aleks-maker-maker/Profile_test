@@ -1,0 +1,47 @@
+name: profile-test-mysql-pma-lab
+
+services:
+  mysql:
+    image: mysql:8.0.46
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Set MYSQL_ROOT_PASSWORD in .env}
+      MYSQL_DATABASE: my_database
+      MYSQL_USER: my_user
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:?Set MYSQL_PASSWORD in .env}
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - >-
+          MYSQL_PWD="$${MYSQL_PASSWORD}" mysql --protocol=TCP --host=127.0.0.1
+          --user="$${MYSQL_USER}" --database="$${MYSQL_DATABASE}"
+          --batch --skip-column-names --execute="SELECT 1" >/dev/null
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 30s
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - mysql-pma-network
+
+  phpmyadmin:
+    image: phpmyadmin:5.2.3-apache
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:${PMA_WEB_PORT:-8085}:80"
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: "3306"
+      UPLOAD_LIMIT: 300M
+    networks:
+      - mysql-pma-network
+
+networks:
+  mysql-pma-network:
+
+volumes:
+  mysql_data:
