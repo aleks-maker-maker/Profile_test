@@ -1,0 +1,4 @@
+# Only the website files are needed by COPY.
+**
+!index.html
+!style.css

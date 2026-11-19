@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Учебный статический сайт на Nginx, запущенный в Docker.">
+  <title>Мой учебный Docker-проект</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <span class="project-name">Мой учебный Docker-проект</span>
+      <a href="#commands">Команды запуска</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" aria-labelledby="greeting">
+      <div class="hero-content">
+        <p class="eyebrow">Лабораторная работа № 14</p>
+        <h1 id="greeting">Привет из контейнера! 🐳</h1>
+        <p class="intro">Статический сайт на Nginx. Dockerfile собирает HTML и CSS в образ, а bind mount позволяет менять страницу во время работы контейнера.</p>
+        <p class="mount-status" id="mount-status">HTML обновлён без пересборки образа и перезапуска контейнера</p>
+      </div>
+
+      <div class="delivery" aria-labelledby="delivery-title">
+        <h2 id="delivery-title">Как браузер получает страницу</h2>
+        <ol>
+          <li><span>Файлы сайта</span><code>index.html + style.css</code></li>
+          <li><span>Контейнер</span><code>nginx:alpine · :80</code></li>
+          <li><span>Браузер</span><code>127.0.0.1:8087</code></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="concepts" aria-labelledby="concepts-title">
+      <h2 id="concepts-title">Из чего состоит проект</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Docker</h3>
+          <p>Собирает файлы приложения и среду запуска в образ. Из одного образа можно запустить несколько отдельных контейнеров.</p>
+        </article>
+        <article class="card">
+          <h3>Nginx</h3>
+          <p>Принимает HTTP-запросы на порту 80 и отдаёт файлы из <code>/usr/share/nginx/html</code>.</p>
+        </article>
+        <article class="card">
+          <h3>Dockerfile</h3>
+          <p>Описывает сборку. Здесь он выбирает базовый образ Nginx, копирует два файла сайта и объявляет порт 80.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="commands" id="commands" aria-labelledby="commands-title">
+      <h2 id="commands-title">Сборка и запуск</h2>
+      <p>Выполните команды PowerShell в каталоге с Dockerfile.</p>
+      <pre><code>docker build -t profile-test-nginx-lab14 .
+docker run -d --name profile-test-nginx-lab14-built -p 127.0.0.1:8087:80 profile-test-nginx-lab14</code></pre>
+    </section>
+  </main>
+</body>
+</html>
